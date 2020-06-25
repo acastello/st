@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
+static char *font = "Inconsoliga: pixelsize=15px: antialas=true";
 static int borderpx = 2;
 
 /*
@@ -96,30 +96,30 @@ unsigned int tabspaces = 8;
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 	/* 8 normal colors */
-	"black",
-	"red3",
-	"green3",
-	"yellow3",
-	"blue2",
-	"magenta3",
-	"cyan3",
-	"gray90",
+	"#202020", /* black   */
+	"#cd5c63", /* red     */
+	"#63cd5c", /* green   */
+	"#cdc55c", /* yellow  */
+	"#5c63cd", /* blue    */
+	"#c55ccd", /* magenta */
+	"#5ccdc5", /* cyan    */
+	"#e6e6e6", /* white   */
 
 	/* 8 bright colors */
-	"gray50",
-	"red",
-	"green",
-	"yellow",
-	"#5c5cff",
-	"magenta",
-	"cyan",
-	"white",
+	"#353535", /* black   */
+	"#d26b72", /* red     */
+	"#72d26b", /* green   */
+	"#d2cb6b", /* yellow  */
+	"#6b72d2", /* blue    */
+	"#cb6bd2", /* magenta */
+	"#6bd2cb", /* cyan    */
+	"#ffffff", /* white   */
 
 	[255] = 0,
 
 	/* more colors can be added after 255 to use with DefaultXX */
-	"#cccccc",
-	"#555555",
+	[256] = "#b0b1b0", /* foreground */
+	[257] = "#272D30", /* background */
 };
 
 
@@ -127,8 +127,8 @@ static const char *colorname[] = {
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultfg = 7;
-unsigned int defaultbg = 0;
+unsigned int defaultfg = 256;
+unsigned int defaultbg = 257;
 static unsigned int defaultcs = 256;
 static unsigned int defaultrcs = 257;
 

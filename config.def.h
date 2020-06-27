@@ -5,7 +5,15 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Inconsoliga: pixelsize=15px: antialas=true";
+static char *font = "Inconsoliga: pixelsize=15px: antialias=true";
+/* Spare fonts */
+static char *font2[] = {
+    "Consolas Ligaturized v2: pixelsize=15px: antialias=true",
+    "Inconsolata: pixelsize=15px: antialias=true",
+/*	"Inconsolata for Powerline:pixelsize=12:antialias=true:autohint=true", */
+/*	"Hack Nerd Font Mono:pixelsize=11:antialias=true:autohint=true", */
+};
+
 static int borderpx = 2;
 
 /*

@@ -2030,6 +2030,12 @@ resize(XEvent *e)
 	cresize(e->xconfigure.width, e->xconfigure.height);
 }
 
+char *
+embededparent(void)
+{
+    return opt_embed;
+}
+
 void
 run(void)
 {

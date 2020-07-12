@@ -160,6 +160,7 @@ typedef struct {
 } STREscape;
 
 static void execsh(char *, char **);
+static char *getcwd_by_pid(pid_t pid);
 static void stty(char **);
 static void sigchld(int);
 static void ttywriteraw(const char *, size_t);
@@ -1104,6 +1105,29 @@ kscrollup(const Arg* a)
 		selscroll(0, n);
 		tfulldirt();
 	}
+}
+
+void
+newterm(const Arg* a)
+{
+    char *xembed_parent;
+	switch (fork()) {
+	case -1:
+		die("fork failed: %s\n", strerror(errno));
+		break;
+	case 0:
+		chdir(getcwd_by_pid(pid));
+		if (xembed_parent = embededparent())
+			execlp("st", "st", "-w", xembed_parent, NULL);
+		execlp("st", "st", NULL);
+		break;
+	}
+}
+
+static char *getcwd_by_pid(pid_t pid) {
+	char buf[32];
+	snprintf(buf, sizeof buf, "/proc/%d/cwd", pid);
+	return realpath(buf, NULL);
 }
 
 void
